@@ -1,0 +1,471 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: 'Nunito', sans-serif;
+        width: 100%;
+        height: 100%;
+        min-width: 1400px;
+        min-height: 650px;
+    }
+
+    html {
+        height: 100%;
+    }
+    header {
+        padding: 0 40px;
+    }
+}
+
+@layer components {
+    :root {
+        --border-color: 0.5px solid rgba(0, 0, 0, 0.05);
+    }
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 0.8s linear infinite;
+    }
+  
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 154px;
+        height: 25px;
+        background: #6C757E;
+        border-radius: 4px;
+        cursor: pointer;
+        color: white;
+        font-size: 13px;
+    }
+    .button:hover {
+        background: #50575e;
+    }
+    .button:active {
+        background: #556470;
+    }
+
+    .search_select_datalist {
+        position: absolute;
+        overflow-y: auto;
+        background-color: white;
+        border-radius: 8px;
+        padding: 5px;
+        max-height: 136px;
+        z-index: 999;
+        min-width: 100%;
+        margin: 0;
+        box-shadow: 0px 0px 5px black;
+    }
+    .search_select_datalist li {
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        cursor: pointer;
+        min-height: 25px;
+        padding: 3px 5px;
+    }
+
+    .search_select_datalist li:hover {
+        background-color: lightgrey;
+    }
+
+    .exit_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 106px;
+        height: 23px;
+        background: #FFFFFF;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #212529;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.39);
+        cursor: pointer;
+    }
+    .exit_button:hover {
+        box-shadow: 0 5px 10px black;
+    }
+    .exit_button:active {
+        background: #c7c7c7;
+    }
+
+    .input_text {
+        padding-left: 5px;
+        width: 100%;
+        height: 25px;
+        background: white;
+        border: 0.5px solid rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+    }
+
+    .input_checkbox {
+        width: 24px;
+        height: 24px;
+        background: #FFFFFF;
+        border: 1px solid rgba(60, 70, 82, 0.3);
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(2.5px);
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .col-div {
+        /* display: flex; */
+        /* align-items: center; */
+        border: var(--border-color);
+        font-size: 12px;
+        font-weight: 500;
+        color: #394858;
+        line-height: .75rem /* 12px */;
+        text-align: left;
+        padding: 1px 2px;
+        /* word-wrap: break-word; */
+        /* overflow: hidden; */
+    }
+    /* .col-div p {
+        width: 95%;
+        margin-left: 7px;
+    } */
+
+    .col-div-search {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        color: #394858;
+        word-wrap: break-word;
+    }
+    .col-div-search p {
+        width: 95%;
+        margin-left: 7px;
+    }
+
+    .border-bottom {
+        border-bottom: var(--border-color);
+    }
+    .border-right {
+        border-right: var(--border-color);
+    }
+    .border-top {
+        border-top: var(--border-color);
+    }
+
+    .calc-width {
+        width: calc(100% - 6px);
+    }
+    /* scroll table */
+    /* полоса прокрутки (скроллбар) */
+    .scrolling::-webkit-scrollbar {
+        width: 6px; 
+        height: 6px;
+        background-color: white;
+    }
+    .scrolling::-webkit-scrollbar-thumb {
+        background: #C4C4C4;
+        box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 6px;
+    }
+    /* полоса прокрутки (скроллбар) (dark) */
+    .scrolling-dark::-webkit-scrollbar {
+        width: 6px; 
+        height: 6px;
+    }
+    .scrolling-dark::-webkit-scrollbar-thumb {
+        background: #C4C4C4;
+        border-radius: 6px;
+    }
+    .my-row-border {
+        border-bottom: var(--border-color);
+        border-top: var(--border-color);
+    }
+
+    .pagination-divs {
+        width: 30px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: 1px solid #DEE2E6;
+    }
+    .pagination-divs:hover {
+        color: #0D6EFD;
+    }
+
+    .transition-height {
+        transition: height 0.5s;
+    }
+
+    .important_field, .only_number {
+        transition: 250ms;
+    }
+
+    .main_manuals_div {
+        width: 100%;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+        overflow: hidden;
+        border-bottom-width: 1px;
+        border-style: solid;
+        border-color: #CDCBCB;
+    }
+
+    .row_manuals {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-right: 1.5rem;
+        padding-left: 2.25rem;
+        height: 35px;
+        border-bottom-width: 1px;
+        border-style: solid;
+        border-color: #CDCBCB;
+    }
+
+    .head_manuals {
+        padding: 0 1.5rem;
+        cursor: pointer;
+        transition: 300ms;
+        background-color: #DEE2E6;
+    }
+    .head_manuals:hover {
+        background-color: #CDCBCB;
+    }
+
+    .choose_color_div {
+        width: 84px;
+        height: 20px;
+        font-size: 10px;
+        border: 0.5px solid rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        cursor: pointer;
+        text-align: center;
+    }
+    .choose_color_div:hover {
+        background-color: ghostwhite;
+    }
+    .color {
+        padding: .5em;
+        margin-right: .4em;
+        border: 1px solid #aaa;
+        border-radius: 3px;
+        width: 140px;
+    }
+
+    .info_report_div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        border: 0.5px solid #979797;
+        border-radius: 10px;
+        padding: 10px 33px;
+        color: white;
+    }
+    .info_report_div h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .info_report_div p {
+        font-size: 16px;
+    }
+
+    .single_container {
+        width: 1200px;
+        height: 100%;
+        background-color: white;
+        border-radius: 0.75rem; /* 12px */
+        border: 1px solid #D9D9D9;
+        
+    }
+}
+
+/* фул тотал приоритет */
+@layer utilities {
+    .a-selected {
+        color: #DEE2E6;
+    }
+    .tab-selected {
+        background-color: #DEE2E6;
+    }
+    .pagination-divs-selected {
+        background-color: #3498db65;
+        color: #0D6EFD;
+    }
+    .inactive_button {
+        background-color: #6C757E59;
+    }
+
+    /* ширина столбцов в таблице */
+    .contract_id_w { /* id */
+        /* width: 3%; */
+    }
+    .it_is_w { /* доход/расход */
+        width: 63px;
+        min-width: 63px;
+    }
+    .contractor_w { /* Контрагент */
+        /* width: 6%; */
+    }
+    .type_w { /* Тип дохода/расхода */
+        /* width: 6%; */
+    }
+    .description_w { /* Описание работ/продукции */
+        /* width: 9%; */
+    }
+    .contract_w { /* Номер договора */
+        /* width: 7%; */
+    }
+    .contract_date_w { /* Дата договора */
+        /* width: 5%; */
+        width: 80px;
+    }
+    .order_w { /* Номер заказа */
+        /* width: 7%; */
+    }
+    .order_date_w { /* Дата заказа */
+        /* width: 5%; */
+        width: 80px;
+    }
+    .order_price_w { /* Общая стоимость заказа, с НДС */
+        /* width: 6%; */
+    }
+    .order_deadline_w { /* Дата окончания заказа */
+        /* width: 5%; */
+        width: 80px;
+    }
+    .invoiced_main_w { /* Счет выставлен (общая) */
+        /* width: 15%; */
+    }
+        .invoice_name_w { /* Счет выставлен (Номер) */
+            /* width: 5%; */
+        }
+        .invoice_price_w { /* Счет выставлен (Сумма) */
+            /* width: 5%; */
+        }
+        .invoice_date_w { /* Счет выставлен (Дата) */
+            /* width: 5%; */
+            width: 80px;
+        }
+    .payment_expected_date_w { /* Ожидаемая дата платежа */
+        /* width: 6%; */
+        width: 80px;
+    }
+    .payment_main_w { /* Платеж получен/отправлен (общая) */
+        /* width: 12%; */
+    }
+        .payment_amount_w { /* Платеж получен/отправлен (Сумма, с НДС) */
+            /* width: 6%; */
+        }
+        .payment_date_w { /* Платеж получен/отправлен (Дата) */
+            /* width: 6%; */
+            width: 80px;
+        }
+    .chain_w { /* столбец связи */
+        min-width: 40px;
+    }
+    .plus_w { /* столбец с кнопкой "плюсик" */
+        min-width: 40px;
+    }
+}
+
+/* для принудительного добавления в main.css */
+.smoke-base {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    display: table;
+    z-index: 1001;
+}
+
+.smoke-dialog_wrapper {
+    position: relative;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.smoke-dialog {
+    width: 32%;
+    margin: 0 auto;
+    padding: 20px;
+    color: #202020;
+    border: 1px solid #B6B6B6;
+    border-radius: 6px;
+    background-color: #f3f3f3;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 24px;
+}
+
+.smoke-dialog-buttons {
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+.smoke-dialog-buttons-ok,
+.smoke-dialog-buttons-cancel {
+    width: 130px;
+    margin: 0 7px;
+    padding: 8px 24px;
+    border: 0;
+    border-radius: 7px;
+    outline: 0;
+    color: white;
+    background: #00BD20;
+    font-family: arial;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: none;
+    line-height: 18px;
+    vertical-align: baseline;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.smoke-dialog-buttons-ok:hover,
+.smoke-dialog-buttons-cancel:hover {
+    background: #222;
+}
+
+.smoke-prompt {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.smoke-prompt-input {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 75%;
+    margin: 0;
+    padding: 11.2px;
+    border: 1.4px solid #aaa;
+    outline: none;
+    font-family: arial;
+    font-size: 22.4px;
+    background-color: white;
+    display: inline-block;
+}
+
+.smoke-dialog-buttons-cancel {
+    background-color: rgba(0, 0, 0, .40);
+}
